@@ -12,28 +12,30 @@
 </head>
 <body>
     <div class="header-container">
-        <h1>Nutrition Finder</h1>
+        <h1>Nutrition Finder <i class="fas fa-weight"></i></h1>
         <hr>
         <h2>Need To Count Calories? You've Come To The Right Place!</h2>
     </div>
 
     <div class="input-container">
-        <input type="text" name="filter" id="filter" placeholder="Enter Food Name...">
-        <button type="submit">Search</button>
+        <form id="form" class="flex">
+            <input type="search" name="searchBox" id="searchBox" placeholder="Search For Your Macros..." autocomplete="off">
+            <button type="submit"></input>
+                <i class="fas fa-search fa-1.5x"></i>
+            </button>
+        </form>
     </div>
 
     <div class="src-results-container" id="srcResultsContainer">
         <div class="indiv-result-container">
-            <div class="indiv-results-thb" id="ithb"></div>
-            <div class="indiv-result-label" id="iLabel"></div>
+            <div class="indiv-result" id="resultContainer"></div>
         </div>
-    </div>
 
     <div class="loading-container">
         <div class="loading-dot" id="dot"></div>
         <div class="loading-dot" id="dot"></div>
         <div class="loading-dot" id="dot"></div>
     </div>
-    
+    <script src="script.js"></script>
 </body>
 </html>
