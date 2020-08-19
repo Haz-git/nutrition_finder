@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4194a93c4e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Nutrition Finder</title>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Nutrition Finder</h1>
+        <hr>
+        <h2>Need To Count Calories? You've Come To The Right Place!</h2>
+    </div>
+
+    <div class="input-container">
+        <input type="text" name="filter" id="filter" placeholder="Enter Food Name...">
+        <button type="submit">Search</button>
+    </div>
+
+    <div class="src-results-container" id="srcResultsContainer">
+        <div class="indiv-result-container">
+            <div class="indiv-results-thb" id="ithb"></div>
+            <div class="indiv-result-label" id="iLabel"></div>
+        </div>
+    </div>
+
+    <div class="loading-container">
+        <div class="loading-dot" id="dot"></div>
+        <div class="loading-dot" id="dot"></div>
+        <div class="loading-dot" id="dot"></div>
+    </div>
+    
+</body>
+</html>
