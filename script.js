@@ -7,7 +7,7 @@ const resultsText = document.getElementById('resultsText');
 
 //Functions// :)
 
-function accessFoodName(obj, accessVar) {
+function accessProperty(obj, accessVar) {
     //Since API returns Data as Object holding an array of objects --> Access Property in Obj --> Access Array (via Index) --> Access Property in Obj.
 	for (const prop in obj) {
 		for (let x = 0; x < obj[prop].length; x++) {
@@ -42,7 +42,7 @@ function fetchFood(e) {
                     if (data[properties].length == 0) {
                         resultsText.innerHTML = `Sorry! There are no results for : ${foodTerm}`;
                     } else {
-                        console.log(accessFoodName(data, 'food_name'));
+                        console.log(accessProperty(data, 'food_name'));
                     }
                 }     
             });
