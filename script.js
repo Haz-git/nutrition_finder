@@ -9,14 +9,19 @@ const resultsText = document.getElementById('resultsText');
 
 function accessProperty(obj, accessVar) {
     //Since API returns Data as Object holding an array of objects --> Access Property in Obj --> Access Array (via Index) --> Access Property in Obj.
+
+    let arr = [];
+
 	for (const prop in obj) {
 		for (let x = 0; x < obj[prop].length; x++) {
-			for (const access in obj[prop][x]) {
-				console.log(obj[prop][x][accessVar]);
-			}
+            console.log(obj[prop][x][accessVar]);
+            }
 		}
-	}
-}
+    }
+    
+    // return arr;
+
+
 
 function fetchFood(e) {
     //fetch results from api and display:
@@ -42,7 +47,17 @@ function fetchFood(e) {
                     if (data[properties].length == 0) {
                         resultsText.innerHTML = `Sorry! There are no results for : ${foodTerm}`;
                     } else {
+                        // resultsContainer.innerHTML = 
                         console.log(accessProperty(data, 'food_name'));
+
+                        
+                        
+                        // map(foodTitle => `
+                        //     <div class="indiv-result-container">
+                        //         <div class="indiv-result" id="resultContainer">${foodTitle}</div>
+                        //     </div>
+                        // `)
+                        // .join('');
                     }
                 }     
             });
