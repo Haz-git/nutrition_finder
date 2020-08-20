@@ -3,6 +3,7 @@
 const form = document.getElementById('form');
 const resultsContainer = document.getElementById('srcResultsContainer');
 const searchBox = document.getElementById('searchBox');
+const resultsText = document.getElementById('resultsText');
 
 //Functions// :)
 
@@ -23,6 +24,7 @@ function fetchFood(e) {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                resultsText.innerHTML = `Results for : ${foodTerm}`;
             });
     }
 }
