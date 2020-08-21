@@ -39,6 +39,11 @@ function fetchFood(e) {
                 console.log(data); //data is an object holding an array of objects
                 resultsText.innerHTML = `Results for : ${foodTerm}`;
             
+                //Check if results are already displayed. If yes, delete them to make room for new ones.
+                if (resultsContainer.innerHTML.trim() !== '') {
+                    resultsContainer.innerHTML = '';
+                } 
+
                 //Iterate through the properties of data and check if all values are empty.
                 for (let properties in data) { //access branded and unbranded
                     if (data[properties].length == 0) { //access every object in array
@@ -58,9 +63,8 @@ function fetchFood(e) {
                                 </div>`
                             ;
                         }
-                        searchBox.value = '';
-
                     }
+                    searchBox.value = '';
                 }     
             });
     }
