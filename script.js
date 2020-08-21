@@ -12,9 +12,9 @@ function accessProperty(obj, accessVar) {
 
     let arr = [];
 
-	for (const prop in obj) {
-		for (let x = 0; x < obj[prop].length; x++) {
-            arr.push(obj[prop][x][accessVar]);
+	for (const prop in obj) { //access branded and unbranded
+		for (let x = 0; x < obj[prop].length; x++) { //access all objects in array
+            arr.push(obj[prop][x][accessVar]); //access individual objects, and access a specific property
 		}
     }
     return arr;
@@ -36,25 +36,23 @@ function fetchFood(e) {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data); //Data is an object holding an array of objects
+                console.log(data); //data is an object holding an array of objects
                 resultsText.innerHTML = `Results for : ${foodTerm}`;
-                
-                for(const object of accessProperty(data, 'photo')) {
-                    console.log(object.thumb); //This successfully returns an array of img links..
-                } //How would I go about adding the image along with the food name if map could only map one element at a time?
-                //******MAIN PRIORITY!! */
-                
+            
                 //Iterate through the properties of data and check if all values are empty.
-                for (let properties in data) {
-                    if (data[properties].length == 0) {
+                for (let properties in data) { //access branded and unbranded
+                    if (data[properties].length == 0) { //access every object in array
                         resultsText.innerHTML = `Sorry! There are no results for : ${foodTerm}`;
                     } else {
-                        resultsContainer.innerHTML = accessProperty(data, 'food_name').map(foodTitle => `
-                            <div class="indiv-result-container">
-                                <img src="???????????????????" alt="food image"/>
-                                <div class="indiv-result" id="resultContainer">${foodTitle.toUpperCase()}</div>
-                            </div>
-                        `).join('');
+                        for (let x = 0; x < data[properties].length; x++) { //access every object in array
+                            resultsContainer.innerHTML += `
+                                <div class="indiv-result-container">
+                                    <img src="${data[properties][x].photo.thumb}" alt="food image"/>
+                                    <div class="indiv-result" id="resultContainer">${data[properties][x].food_name.toUpperCase()}</div>
+                                </div>`
+                            ;
+                        }
+
                     }
                 }     
             });
