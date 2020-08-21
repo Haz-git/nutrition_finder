@@ -48,10 +48,17 @@ function fetchFood(e) {
                             resultsContainer.innerHTML += `
                                 <div class="indiv-result-container">
                                     <img src="${data[properties][x].photo.thumb}" alt="food image"/>
-                                    <div class="indiv-result" id="resultContainer">${data[properties][x].food_name.toUpperCase()}</div>
+                                    <div class="indiv-result" id="resultContainer">
+                                        <h2>${data[properties][x].food_name.toUpperCase()}</h2>
+                                        <h3> Serving Size: ${data[properties][x].serving_qty + ' ' + data[properties][x].serving_unit} </h3>
+                                    </div>
+                                    <div class="calorie-container">
+                                        <h2> Calories: ${data[properties][x].nf_calories}</h2>
+                                    </div>
                                 </div>`
                             ;
                         }
+                        searchBox.value = '';
 
                     }
                 }     
